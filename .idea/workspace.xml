@@ -7,156 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8753353c-8ffb-4191-b0e1-04ff6944ee50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fadcbeea-cea5-4c1f-be52-34796a7674a3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fadcbeea-cea5-4c1f-be52-34796a7674a3/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ty.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ssm.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/controller/DeviceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/mapper/CustomerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/mapper/CustomerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/pojo/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/pojo/PageBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/service/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/service/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/tycoding/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/resource/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/resource/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/springmvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sys_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/addDevice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/addPerson.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/info.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/loginInfo.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/page.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/controller/CustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/mapper/CustomerMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/mapper/CustomerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/pojo/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/pojo/PageBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/pojo/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/service/BaseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/service/CustomerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/service/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/tycoding/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resource/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/resource/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/spring/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/spring/springmvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/sys_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/controller/CustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/mapper/CustomerMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/mapper/CustomerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/pojo/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/pojo/PageBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/pojo/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/service/BaseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/service/CustomerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/service/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/cn/tycoding/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mybatis/mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/resource/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/resource/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/spring/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/spring/springmvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/sys_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/c3p0-0.9.1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/fastjson-1.2.47.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/hamcrest-core-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/jackson-annotations-2.5.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/jackson-core-2.5.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/jackson-databind-2.5.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/javax.servlet-api-3.0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/jsqlparser-0.9.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/junit-4.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/logback-classic-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/logback-core-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/mybatis-3.2.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/mybatis-spring-1.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/mysql-connector-java-5.1.32.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/pagehelper-4.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/slf4j-api-1.7.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-aop-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-beans-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-context-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-core-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-expression-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-jdbc-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-test-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-tx-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-web-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/lib/spring-webmvc-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/page/addPerson.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/page/info.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/page/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/page/loginInfo.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/page/page.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/lib/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/lib/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/lib/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/ssm/lib/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/项目计划.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/项目计划.txt" beforeDir="false" afterPath="$PROJECT_DIR$/项目计划.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,12 +277,24 @@
       <workItem from="1618712181264" duration="16536000" />
       <workItem from="1618738782065" duration="30000" />
       <workItem from="1620524230736" duration="2231000" />
-      <workItem from="1620531127409" duration="7966000" />
+      <workItem from="1620531127409" duration="8743000" />
     </task>
+    <task id="LOCAL-00001" summary="提交本地">
+      <created>1620544674676</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620544674676</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="提交本地" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交本地" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="24" key="#Tomcat_Server" timestamp="1618626401666">
@@ -440,10 +305,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="359" y="25" width="854" height="605" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1620531595858" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1620544446578">
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1620544671076">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1620544446578" />
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1620544671076" />
     <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1620544275397">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

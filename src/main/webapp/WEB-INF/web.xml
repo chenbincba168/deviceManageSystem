@@ -33,6 +33,7 @@
         <param-value>classpath:spring/beans.xml</param-value>
     </context-param>
 
+    
     <!-- 配置springmvc的前端控制器，request请求会先经过这个控制器 -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
