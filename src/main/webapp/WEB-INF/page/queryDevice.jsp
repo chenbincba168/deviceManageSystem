@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
 <link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.min.css"/>
 <head>
-    <title>客户列表页面</title>
+    <title>设备列表</title>
 </head>
 <body>
 <!-- 导航栏 -->
@@ -25,10 +25,10 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加设备</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询设备</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toAddPerson"><strong>添加人员</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toShowPersonList"><strong>查询人员</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toAddDevice"><strong>添加设备</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toShowDeviceList"><strong>查询设备</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -36,18 +36,18 @@
 </div>
 <br/>
 <div class="container">
-    <h1 class="text-center">客户列表信息页面</h1>
+    <h1 class="text-center">设备列表信息页面</h1>
     <hr/>
     <br/>
-    <form class="form-inline" action="<%=basePath%>/customer/findByPage" method="post">
+    <form class="form-inline" action="<%=basePath%>/device/findByPage" method="post">
         <div class="form-group">
-            <label>客户姓名：</label>
+            <label>设备SN：</label>
             <input type="text" class="form-control" name="name"/>
         </div>
         &nbsp;&nbsp;
         &nbsp;&nbsp;
         <div class="form-group">
-            <label>客户电话</label>
+            <label>设备IP：</label>
             <input type="text" class="form-control" name="telephone"/>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,11 +64,11 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th style="text-align: center;">客户编号</th>
-                <th style="text-align: center;">客户姓名</th>
-                <th style="text-align: center;">客户电话</th>
-                <th style="text-align: center;">客户地址</th>
-                <th style="text-align: center;">客户备注</th>
+                <th style="text-align: center;">设备SN</th>
+                <th style="text-align: center;">设备名称</th>
+                <th style="text-align: center;">设备IP</th>
+                <th style="text-align: center;">设备分组</th>
+                <th style="text-align: center;">出入口标识</th>
                 <th style="text-align: center;">操作</th>
             </tr>
             </thead>
@@ -94,7 +94,7 @@
             </tbody>
         </table>
     </div>
-    <form class="listForm" method="post" action="<%=basePath%>/customer/findByPage">
+    <form class="listForm" method="post" action="<%=basePath%>/device/findByPage">
         <div class="row">
             <div class="form-inline">
                 <label style="font-size:14px;margin-top:22px;">
@@ -129,11 +129,11 @@
 
                 <ul class="pagination" style="float:right;">
                     <li>
-                        <a href="<%=basePath%>/customer/findByPage?pageCode=1"><strong>首页</strong></a>
+                        <a href="<%=basePath%>/device/findByPage?pageCode=1"><strong>首页</strong></a>
                     </li>
                     <li>
                         <c:if test="${requestScope.page.pageCode > 2}">
-                            <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.pageCode - 1}">&laquo;</a>
+                            <a href="<%=basePath%>/device/findByPage?pageCode=${requestScope.page.pageCode - 1}">&laquo;</a>
                         </c:if>
                     </li>
 
@@ -169,18 +169,18 @@
                         </c:if>
                         <c:if test="${i != requestScope.page.pageCode}">
                             <li>
-                                <a href="<%=basePath%>/customer/findByPage?pageCode=${i}&pageSize=${requestScope.page.pageSize}">${i}</a>
+                                <a href="<%=basePath%>/device/findByPage?pageCode=${i}&pageSize=${requestScope.page.pageSize}">${i}</a>
                             </li>
                         </c:if>
                     </c:forEach>
 
                     <li>
                         <c:if test="${requestScope.page.pageCode < requestScope.page.totalPage}">
-                            <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.pageCode + 1}">&raquo;</a>
+                            <a href="<%=basePath%>/device/findByPage?pageCode=${requestScope.page.pageCode + 1}">&raquo;</a>
                         </c:if>
                     </li>
                     <li>
-                        <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.totalPage}"><strong>末页</strong></a>
+                        <a href="<%=basePath%>/device/findByPage?pageCode=${requestScope.page.totalPage}"><strong>末页</strong></a>
                     </li>
                 </ul>
             </div>
@@ -219,31 +219,37 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">修改客户信息</h4>
+                        <h4 class="modal-title">修改设备信息</h4>
                     </div>
                     <div class="modal-body" style="margin-left: 80px;">
                         <input name="id" id="id" hidden="hidden"/>
                         <div class="form-group form-inline">
-                            <label>客户姓名：</label>
-                            <input type="text" name="name" class="form-control" id="name"/>
+                            <label>设备SN：</label>
+                            <input type="text" name="name" class="form-control" id="sn"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
-                            <label>客户电话：</label>
-                            <input type="text" name="telephone" class="form-control" id="telephone"/>
+                            <label>设备名称：</label>
+                            <input type="text" name="telephone" class="form-control" id="name"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
-                            <label>客户住址：</label>
-                            <input type="text" name="address" class="form-control" id="address"/>
+                            <label>设备IP：</label>
+                            <input type="text" name="address" class="form-control" id="ip"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
-                            <label>客户备注：</label>
-                            <input type="text" name="remark" class="form-control" id="remark"/>
+                            <label>设备分组：</label>
+                            <input type="text" name="remark" class="form-control" id="group"/>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group form-inline">
+                            <label>出入口标识：</label>
+                            <input type="text" name="remark" class="form-control" id="direction"/>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -266,7 +272,7 @@
         } else {
             $(".delSure").click(function () {
                 $.ajax({
-                    url: '<%=basePath%>/customer/delete.do?id=' + id,
+                    url: '<%=basePath%>/device/delete.do?id=' + id,
                     type: 'POST',
                     success: function (data) {
                         $("body").html(data);
@@ -284,7 +290,7 @@
         } else {
             // 先去查询数据
             $.ajax({
-                url: '<%=basePath%>/customer/findById.do',
+                url: '<%=basePath%>/device/findById.do',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',

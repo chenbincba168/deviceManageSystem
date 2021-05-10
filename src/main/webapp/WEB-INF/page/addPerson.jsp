@@ -14,7 +14,7 @@
 <html>
 <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
 <head>
-    <title>添加客户功能页面</title>
+    <title>添加人员</title>
 </head>
 <body>
 <!-- 导航栏 -->
@@ -23,10 +23,10 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加设备</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询设备</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toAddPerson"><strong>添加人员</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toShowPersonList"><strong>查询人员</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toAddDevice"><strong>添加设备</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toShowDeviceList"><strong>查询设备</strong></a></li>
                 </ul>
             </div>
         </div>

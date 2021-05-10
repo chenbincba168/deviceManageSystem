@@ -14,7 +14,7 @@
 <html>
 <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
 <head>
-    <title>添加客户功能页面</title>
+    <title>添加设备</title>
 </head>
 <body>
 <!-- 导航栏 -->
@@ -23,46 +23,46 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询人员</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加设备</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage"><strong>查询设备</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toAddPerson"><strong>添加人员</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toShowPersonList"><strong>查询人员</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toAddDevice"><strong>添加设备</strong></a></li>
+                    <li><a href="<%=basePath%>/device/toShowDeviceList"><strong>查询设备</strong></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
 <div class="container">
-    <h1 class="text-center">人员信息</h1>
+    <h1 class="text-center">设备信息</h1>
     <hr/>
     <br/>
     <form class="form-inline text-center" action="<%=basePath%>/customer/save" method="post">
         <div class="form-group form-inline">
-            <label>客户编号：</label>
+            <label>设备SN：</label>
             <input type="text" name="id" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
-            <label>客户姓名：</label>
+            <label>设备名称：</label>
             <input type="text" name="name" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
-            <label>客户电话：</label>
+            <label>设备IP：</label>
             <input type="text" name="telephone" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
-            <label>客户住址：</label>
+            <label>设备分组：</label>
             <input type="text" name="address" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
-            <label>客户备注：</label>
+            <label>出入口标识：</label>
             <input type="text" name="remark" class="form-control"/>
         </div>
         <br/>

@@ -60,7 +60,7 @@ public class DeviceController {
             e.printStackTrace();
             model.addAttribute("message", "保存设备失败");
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
     /**
@@ -78,7 +78,7 @@ public class DeviceController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
 
@@ -114,7 +114,7 @@ public class DeviceController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
     /**
@@ -132,7 +132,7 @@ public class DeviceController {
                              Model model) {
         // 回显数据
         model.addAttribute("page", customerService.findByPage(customer, pageCode, pageSize));
-        return "page/list";
+        return "page/queryDevice";
     }
 
 }

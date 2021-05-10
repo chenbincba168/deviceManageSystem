@@ -30,7 +30,7 @@ public class CustomerController {
     /**
      * 跳转到添加客户功能页面
      */
-    @RequestMapping("/toSavePage")
+    @RequestMapping("/toAddPerson")
     public String toSavePage() {
         return "page/addPerson";
     }
@@ -38,7 +38,7 @@ public class CustomerController {
     /**
      * 跳转到客户列表页面
      */
-    @RequestMapping(value = "/toListPage")
+    @RequestMapping(value = "/toShowPersonList")
     public String toListPage(Model model) {
         return "redirect:findByPage";
     }
@@ -59,7 +59,7 @@ public class CustomerController {
             e.printStackTrace();
             model.addAttribute("message", "保存客户信息系失败");
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
     /**
@@ -77,7 +77,7 @@ public class CustomerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
 
@@ -113,7 +113,7 @@ public class CustomerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "page/info";
+        return "page/otherInfo";
     }
 
     /**
@@ -131,7 +131,7 @@ public class CustomerController {
                              Model model) {
         // 回显数据
         model.addAttribute("page", customerService.findByPage(customer, pageCode, pageSize));
-        return "page/list";
+        return "page/queryPerson";
     }
 
 }

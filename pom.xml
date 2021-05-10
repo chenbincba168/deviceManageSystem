@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn</groupId>
-    <artifactId>ssm</artifactId>
+    <artifactId>deviceManage</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>TyCoding Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <build>
-        <finalName>ssm</finalName>
+        <finalName>deviceManage</finalName>
         <resources>
             <resource>
                 <directory>${basedir}/src/main/java</directory>

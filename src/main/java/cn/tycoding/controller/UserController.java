@@ -31,8 +31,8 @@ public class UserController {
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 //登录成功
-                System.out.println("登陆成功");
-                return "page/page";
+                System.out.println("登录成功");
+                return "/page/homepage";
             } else {
                 model.addAttribute("message", "登录失败");
                 return "page/loginInfo";
