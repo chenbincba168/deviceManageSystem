@@ -1,6 +1,6 @@
 package cn.tycoding.controller;
 
-import cn.tycoding.pojo.User;
+import cn.tycoding.pojo.UserLogin;
 import cn.tycoding.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 用户的控制层
  *
- * @author tycoding
- * @date 18-4-7下午9:00
+ * @author aa
+ * @date 21-5-7下午9:00
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserLoginController {
 
     //注入service
     @Autowired
@@ -27,12 +27,12 @@ public class UserController {
      */
     @RequestMapping(value = "/loginInfo")
     public String login(@RequestParam String username,@RequestParam String password, Model model) {
-        User user = userService.login(username);
+        UserLogin user = userService.login(username);
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 //登录成功
                 System.out.println("登录成功");
-                return "/page/homepage";
+                return "page/homepage";
             } else {
                 model.addAttribute("message", "登录失败");
                 return "page/loginInfo";

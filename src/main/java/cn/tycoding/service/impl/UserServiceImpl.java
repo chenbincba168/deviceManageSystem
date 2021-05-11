@@ -1,7 +1,7 @@
 package cn.tycoding.service.impl;
 
-import cn.tycoding.mapper.UserMapper;
-import cn.tycoding.pojo.User;
+import cn.tycoding.mapper.UserLoginMapper;
+import cn.tycoding.pojo.UserLogin;
 import cn.tycoding.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,24 +17,24 @@ public class UserServiceImpl implements UserService {
 
     //注入
     @Autowired
-    private UserMapper userMapper;
+    private UserLoginMapper userMapper;
 
     /**
      * 用户登录的方法
      */
-    public User login(String username) {
+    public UserLogin login(String username) {
         return userMapper.login(username);
     }
 
-    public List<User> findAll() {
+    public List<UserLogin> findAll() {
         return null;
     }
 
-    public User findById(Long id) {
+    public UserLogin findById(Long id) {
         return null;
     }
 
-    public void create(User user) {
+    public void create(UserLogin user) {
 
     }
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void update(User user) {
+    public void update(UserLogin user) {
 
     }
 }

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author tycoding
  * @date 18-4-7下午7:28
  */
-public class User implements Serializable {
+public class UserLogin implements Serializable {
 
     //用户id
     private Long id;
