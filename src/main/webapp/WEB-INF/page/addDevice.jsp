@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: my-deepin
-  Date: 18-4-14
-  Time: 下午4:16
+  Date: 21-5-15
+  Time: 下午3:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
@@ -36,34 +36,46 @@
     <h1 class="text-center">设备信息</h1>
     <hr/>
     <br/>
-    <form class="form-inline text-center" action="<%=basePath%>/customer/save" method="post">
+    <form class="form-inline text-center" action="<%=basePath%>/device/save" method="post">
         <div class="form-group form-inline">
-            <label>设备SN：</label>
+            <label>设备ID：</label>
             <input type="text" name="id" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
+            <label>设备SN：</label>
+            <input type="text" name="deviceSN" class="form-control"/>
+        </div>
+        <br/>
+        <br/>
+        <div class="form-group form-inline">
             <label>设备名称：</label>
-            <input type="text" name="name" class="form-control"/>
+            <input type="text" name="deviceName" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
             <label>设备IP：</label>
-            <input type="text" name="telephone" class="form-control"/>
+            <input type="text" name="deviceIP" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
             <label>设备分组：</label>
-            <input type="text" name="address" class="form-control"/>
+            <input type="text" name="deviceGroup" class="form-control"/>
         </div>
         <br/>
         <br/>
         <div class="form-group form-inline">
             <label>出入口标识：</label>
-            <input type="text" name="remark" class="form-control"/>
+            <input type="text" name="deviceDirection" class="form-control"/>
+        </div>
+        <br/>
+        <br/>
+        <div class="form-group form-inline">
+            <label>属性：</label>
+            <input type="text" name="deviceProperty" class="form-control"/>
         </div>
         <br/>
         <br/>

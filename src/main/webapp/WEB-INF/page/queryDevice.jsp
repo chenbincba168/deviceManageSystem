@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: my-deepin
-  Date: 18-4-14
-  Time: 下午4:18
+  Date: 21-5-15
+  Time: 下午5:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
@@ -42,13 +42,13 @@
     <form class="form-inline" action="<%=basePath%>/device/findByPage" method="post">
         <div class="form-group">
             <label>设备SN：</label>
-            <input type="text" class="form-control" name="name"/>
+            <input type="text" class="form-control" name="deviceSN"/>
         </div>
         &nbsp;&nbsp;
         &nbsp;&nbsp;
         <div class="form-group">
             <label>设备IP：</label>
-            <input type="text" class="form-control" name="telephone"/>
+            <input type="text" class="form-control" name="deviceIP"/>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,22 +69,23 @@
                 <th style="text-align: center;">设备IP</th>
                 <th style="text-align: center;">设备分组</th>
                 <th style="text-align: center;">出入口标识</th>
-                <th style="text-align: center;">操作</th>
+                <th style="text-align: center;">属性</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${requestScope.page.beanList}" var="customer">
+            <c:forEach items="${requestScope.page.beanList}" var="device">
                 <tr class="text-center">
-                    <td>${customer.id}</td>
-                    <td>${customer.name}</td>
-                    <td>${customer.telephone}</td>
-                    <td>${customer.address}</td>
-                    <td>${customer.remark}</td>
+                    <td>${device.id}</td>
+                    <td>${device.deviceName}</td>
+                    <td>${device.deviceSN}</td>
+                    <td>${device.deviceIP}</td>
+                    <td>${device.deviceGroup}</td>
+                    <td>${device.deviceProperty}</td>
                     <td>
-                        <a href="#" onclick="return edit(${customer.id})" style="text-decoration: none;">
+                        <a href="#" onclick="return edit(${device.id})" style="text-decoration: none;">
                             <span class="fa fa-edit fa-fw"></span>
                         </a>
-                        <a href="#" onclick="return trash(${customer.id})" style="text-decoration: none;"
+                        <a href="#" onclick="return trash(${device.id})" style="text-decoration: none;"
                            data-toggle="modal" data-target="#trashModal">
                             <span class="fa fa-trash-o fa-fw"></span>
                         </a>
@@ -211,7 +212,7 @@
     </div>
 
     <!-- 编辑的模态框 -->
-    <form class="form-horizontal" role="form" method="post" action="<%=basePath%>/customer/update"
+    <form class="form-horizontal" role="form" method="post" action="<%=basePath%>/device/update"
           id="form_edit">
         <div class="modal fade" id="editModal" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">

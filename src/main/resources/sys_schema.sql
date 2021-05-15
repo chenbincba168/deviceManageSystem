@@ -1,7 +1,6 @@
 -- create database ssm character set utf8;
 
-drop table if exists tb_user;
-drop table if exists tb_customer;
+drop table if exists tb_user;drop table if exists tb_customer;
 
 create table tb_user(
   id int primary key auto_increment,
@@ -18,6 +17,7 @@ create table tb_customer(
 ) default charset = utf8;
 
 insert into tb_user values(1,'admin','admin');
+
 
 insert into tb_customer values(1,'涂陌','123456789','你猜','不想写备注');
 insert into tb_customer values(2,'逗瓜','123456789','你猜','不想写备注');

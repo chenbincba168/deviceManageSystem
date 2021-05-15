@@ -1,7 +1,7 @@
 package cn.tycoding.controller;
 
-import cn.tycoding.pojo.Customer;
-import cn.tycoding.service.CustomerService;
+import cn.tycoding.pojo.Device;
+import cn.tycoding.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 这是客户管理的Controller层
  *
  * @author tycoding
- * @date 18-4-7下午7:26
+ * @date 21-5-15下午7:26
  */
 @Controller
 @RequestMapping(value = "/device")
@@ -25,7 +25,7 @@ public class DeviceController {
      * 使用@Resource和@Autowired都可以实现Bean的自动注入
      */
     @Autowired
-    private CustomerService customerService;
+    private DeviceService deviceService;
 
     /**
      * 跳转到添加客户功能页面
@@ -47,14 +47,14 @@ public class DeviceController {
     /**
      * 客户信息保存
      *
-     * @param customer
+     * @param device
      * @param model
      * @return
      */
     @RequestMapping(value = "/save")
-    public String create(Customer customer, Model model) {
+    public String create(Device device, Model model) {
         try {
-            customerService.create(customer);
+            deviceService.create(device);
             model.addAttribute("message", "保存设备成功");
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,7 +73,7 @@ public class DeviceController {
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam Long id, Model model) {
         try {
-            customerService.delete(id);
+            deviceService.delete(id);
             model.addAttribute("message", "删除客户信息成功");
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,15 +85,15 @@ public class DeviceController {
     /**
      * 根据id查询客户信息方法
      *
-     * @param customer
+     * @param device
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/findById")
-    public Customer findById(@RequestBody Customer customer) {
-        Customer customer_info = customerService.findById(customer.getId());
-        if (customer_info != null) {
-            return customer_info;
+    public Device findById(@RequestBody Device device) {
+        Device device_info = deviceService.findById(device.getId());
+        if (device_info != null) {
+            return device_info;
         } else {
             return null;
         }
@@ -102,14 +102,14 @@ public class DeviceController {
     /**
      * 更新客户信息的方法
      *
-     * @param customer
+     * @param device
      * @param model
      * @return
      */
     @RequestMapping(value = "/update")
-    public String update(Customer customer, Model model) {
+    public String update(Device device, Model model) {
         try {
-            customerService.update(customer);
+            deviceService.update(device);
             model.addAttribute("message", "更新客户信息成功");
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,19 +120,18 @@ public class DeviceController {
     /**
      * 分页查询
      *
-     * @param customer 查询条件
+     * @param device 查询条件
      * @param pageCode 当前页
      * @param pageSize 每页显示的记录数
      * @return
      */
     @RequestMapping("/findByPage")
-    public String findByPage(Customer customer,
+    public String findByPage(Device device,
                              @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "2") int pageSize,
                              Model model) {
         // 回显数据
-        model.addAttribute("page", customerService.findByPage(customer, pageCode, pageSize));
+        model.addAttribute("page", deviceService.findByPage(device, pageCode, pageSize));
         return "page/queryDevice";
     }
-
 }
