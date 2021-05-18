@@ -226,31 +226,37 @@
                         <input name="id" id="id" hidden="hidden"/>
                         <div class="form-group form-inline">
                             <label>设备SN：</label>
-                            <input type="text" name="name" class="form-control" id="sn"/>
+                            <input type="text" name="deviceSN" class="form-control" id="deviceSN"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
                             <label>设备名称：</label>
-                            <input type="text" name="telephone" class="form-control" id="name"/>
+                            <input type="text" name="deviceName" class="form-control" id="deviceName"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
                             <label>设备IP：</label>
-                            <input type="text" name="address" class="form-control" id="ip"/>
+                            <input type="text" name="deviceIP" class="form-control" id="deviceIP"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
                             <label>设备分组：</label>
-                            <input type="text" name="remark" class="form-control" id="group"/>
+                            <input type="text" name="deviceGroup" class="form-control" id="deviceGroup"/>
                         </div>
                         <br/>
                         <br/>
                         <div class="form-group form-inline">
                             <label>出入口标识：</label>
-                            <input type="text" name="remark" class="form-control" id="direction"/>
+                            <input type="text" name="deviceDirection" class="form-control" id="deviceDirection"/>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group form-inline">
+                            <label>属性：</label>
+                            <input type="text" name="deviceProperty" class="form-control" id="deviceProperty"/>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -298,12 +304,23 @@
                 data: JSON.stringify({
                     id: id
                 }),
+                /*
+                id,
+                deviceName,
+                deviceSN,
+                deviceIP,
+                deviceGroup,
+                deviceDirection,
+                deviceProperty
+                 */
                 success: function (data) {
                     $("#id").val(data.id);
-                    $("#name").val(data.name);
-                    $("#telephone").val(data.telephone);
-                    $("#address").val(data.address);
-                    $("#remark").val(data.remark);
+                    $("#deviceName").val(data.deviceName);
+                    $("#deviceSN").val(data.deviceSN);
+                    $("#deviceIP").val(data.deviceIP);
+                    $("#deviceGroup").val(data.deviceGroup);
+                    $("#deviceDirection").val(data.deviceDirection);
+                    $("#deviceProperty").val(data.deviceProperty);
                     $("#editModal").modal('show');
                 },
                 error: function () {
