@@ -101,7 +101,6 @@
                 <label style="font-size:14px;margin-top:22px;">
                     <strong>共<b>${requestScope.page.totalCount}</b>条记录，共<b>${requestScope.page.totalPage}</b>页</strong>
                     &nbsp;
-                    &nbsp;
                     <strong>每页显示</strong>
                     <input name="pageCode" value="${requestScope.page.pageCode}" hidden="hidden"/>
                     <select class="form-control" name="pageSize">
@@ -304,15 +303,6 @@
                 data: JSON.stringify({
                     id: id
                 }),
-                /*
-                id,
-                deviceName,
-                deviceSN,
-                deviceIP,
-                deviceGroup,
-                deviceDirection,
-                deviceProperty
-                 */
                 success: function (data) {
                     $("#id").val(data.id);
                     $("#deviceName").val(data.deviceName);

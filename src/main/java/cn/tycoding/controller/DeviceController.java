@@ -110,11 +110,12 @@ public class DeviceController {
     public String update(Device device, Model model) {
         try {
             deviceService.update(device);
-            model.addAttribute("message", "更新客户信息成功");
+            return "redirect:findByPage";//修改成功后直接返回查询界面
         } catch (Exception e) {
             e.printStackTrace();
+            model.addAttribute("message", "更新设备信息失败");
+            return "page/otherInfo";
         }
-        return "page/otherInfo";
     }
 
     /**
@@ -128,7 +129,7 @@ public class DeviceController {
     @RequestMapping("/findByPage")
     public String findByPage(Device device,
                              @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                             @RequestParam(value = "pageSize", required = false, defaultValue = "2") int pageSize,
+                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") int pageSize,
                              Model model) {
         // 回显数据
         model.addAttribute("page", deviceService.findByPage(device, pageCode, pageSize));

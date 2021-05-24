@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 这是客户管理的Controller层
  *
  * @author tycoding
- * @date 18-4-7下午7:26
+ * @date
  */
 @Controller
 @RequestMapping(value = "/customer")
@@ -109,11 +109,13 @@ public class CustomerController {
     public String update(Customer customer, Model model) {
         try {
             customerService.update(customer);
-            model.addAttribute("message", "更新客户信息成功");
+            return "redirect:findByPage";
         } catch (Exception e) {
             e.printStackTrace();
+            model.addAttribute("message", "更新客户信息失败");
+            return "page/otherInfo";
         }
-        return "page/otherInfo";
+
     }
 
     /**
@@ -126,12 +128,11 @@ public class CustomerController {
      */
     @RequestMapping("/findByPage")
     public String findByPage(Customer customer,
-                             @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                             @RequestParam(value = "pageSize", required = false, defaultValue = "2") int pageSize,
+                             @RequestParam(value = "pageCode", required = true, defaultValue = "1") int pageCode,
+                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") int pageSize,
                              Model model) {
         // 回显数据
         model.addAttribute("page", customerService.findByPage(customer, pageCode, pageSize));
         return "page/queryPerson";
     }
-
 }
