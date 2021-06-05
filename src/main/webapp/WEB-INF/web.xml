@@ -27,6 +27,12 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!-- 自定义spring监听器 -->
+    <listener>
+        <listener-class>cn.tycoding.tcpServer.SocketServiceLoader</listener-class>
+    </listener>
+
     <!-- 加载spring容器 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>

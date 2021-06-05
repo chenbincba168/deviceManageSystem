@@ -24,6 +24,8 @@
         </resources>
     </build>
 
+
+
     <!-- 统一约定版本号 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
