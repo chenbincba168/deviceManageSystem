@@ -19,10 +19,10 @@ create table tb_customer(
 insert into tb_user values(1,'admin','admin');
 
 
-insert into tb_customer values(1,'涂陌','123456789','你猜','不想写备注');
-insert into tb_customer values(2,'逗瓜','123456789','你猜','不想写备注');
-insert into tb_customer values(3,'愤青','123456789','你猜','不想写备注');
-insert into tb_customer values(4,'咸鱼','123456789','你猜','不想写备注');
-insert into tb_customer values(5,'小白','123456789','你猜','不想写备注');
-insert into tb_customer values(6,'菜鸡','123456789','你猜','不想写备注');
+insert into tb_customer values(1,'张三','123456789','你猜','不想写备注');
+insert into tb_customer values(2,'张三2','123456789','你猜','不想写备注');
+insert into tb_customer values(3,'张三5','123456789','你猜','不想写备注');
+insert into tb_customer values(4,'张三15','123456789','你猜','不想写备注');
+insert into tb_customer values(5,'张三16','123456789','你猜','不想写备注');
+insert into tb_customer values(6,'张三21','123456789','你猜','不想写备注');
 
