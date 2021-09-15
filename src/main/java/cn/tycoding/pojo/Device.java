@@ -15,6 +15,8 @@ public class Device implements Serializable {
     private String deviceDirection;
     private String deviceGroup;
     private String deviceProperty;
+    private String deviceConnect;
+
 
     public Long getId() {
         return id;
@@ -70,5 +72,13 @@ public class Device implements Serializable {
 
     public void setDeviceProperty(String deviceProperty) {
         this.deviceProperty = deviceProperty;
+    }
+
+    public String getDeviceConnect() {
+        return deviceConnect;
+    }
+
+    public void setDeviceConnect(String deviceConnect) {
+        this.deviceConnect = deviceConnect;
     }
 }

@@ -1,7 +1,9 @@
 package cn.tycoding.controller;
 
 import cn.tycoding.pojo.Device;
+import cn.tycoding.pojo.PageBean;
 import cn.tycoding.service.DeviceService;
+import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
 
 /**
  * 这是客户管理的Controller层
@@ -93,6 +97,7 @@ public class DeviceController {
     public Device findById(@RequestBody Device device) {
         Device device_info = deviceService.findById(device.getId());
         if (device_info != null) {
+            device_info.setDeviceProperty("123");//手动修改参数
             return device_info;
         } else {
             return null;
@@ -132,7 +137,11 @@ public class DeviceController {
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") int pageSize,
                              Model model) {
         // 回显数据
-        model.addAttribute("page", deviceService.findByPage(device, pageCode, pageSize));
+        Object obj = deviceService.findByPage(device, pageCode, pageSize);
+        model.addAttribute("page", obj);
+
+        String connectStatus = "连接成功";
+        model.addAttribute("connect", connectStatus);
         return "page/queryDevice";
     }
 }

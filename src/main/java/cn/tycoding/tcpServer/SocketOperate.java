@@ -3,7 +3,13 @@ package cn.tycoding.tcpServer;
 import java.io.*;
 import java.net.Socket;
 import net.sf.json.*;
+
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Map;
+
+import cn.tycoding.utils.getStringLength;
 
 enum PacketType {
     HEARTBEAT(1),  //心跳消息包
@@ -11,11 +17,11 @@ enum PacketType {
     REQUEST(3),      //请求消息包
     RESPONSE(4);      //相应消息包
     private final int value;
-
     PacketType(int value) {
         this.value = value;
     }
 }
+
 
 class message implements java.io.Serializable {
     public String Magic;
@@ -30,18 +36,25 @@ class message implements java.io.Serializable {
 }
 
 
+
+
+
 /**
  * 多线程处理socket接收的数据
  * @author huajian
  *
  */
-
 public class SocketOperate extends Thread {
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;
-    private message receiveMsg;
     JSONObject responseJson;
+    int openDoor = 1;
+    String tip = "你好";
+    String level = "green";
+    String name = "张三";
+    Map connectMap;
+
 
     public SocketOperate(Socket socket) {
         this.socket = socket;
@@ -73,50 +86,74 @@ public class SocketOperate extends Thread {
     {
         try {
             while (true) {
-
                 /*接收客户端的消息并打印*/
-                System.out.println(socket);
+//                System.out.println(socket);
                 inputStream = socket.getInputStream();
-                byte[] recBuffer = new byte[1024];
+                byte[] recBuffer = new byte[3000];
                 inputStream.read(recBuffer);
-                System.out.println("Magic = " + new String(recBuffer, 0, 4));
-                System.out.println("Version = " + recBuffer[4]);
-                System.out.println("Msgtype = " + recBuffer[5]);
-                System.out.println("Datatype = " + recBuffer[6]);
-                System.out.println("Resv = " + recBuffer[7]);
-                System.out.println("Timestamp = " + (recBuffer[8]<<24 | recBuffer[9]<<16 | recBuffer[10]<<8 | recBuffer[11]));
-                System.out.println("Seq = " + (recBuffer[12]<<24 | recBuffer[13]<<16 | recBuffer[14]<<8 | recBuffer[15]));
-                System.out.println("datasize = " + (recBuffer[19]<<24 | recBuffer[18]<<16 | recBuffer[17]<<8 | recBuffer[16]));
+                String maic = new String(recBuffer, 0, 4);
+                if(maic.equals("QYZN")) {
+                    System.out.println("Magic = " + maic);
+                    System.out.println("Version = " + recBuffer[4]);
+                    System.out.println("Msgtype = " + recBuffer[5]);
+                    System.out.println("Datatype = " + recBuffer[6]);
+                    System.out.println("Resv = " + recBuffer[7]);
+                    System.out.println("Timestamp = " + (recBuffer[11]<<24 | recBuffer[10]<<16 | recBuffer[9]<<8 | recBuffer[8]));
+                    System.out.println("Seq = " + (recBuffer[15]<<24 | recBuffer[14]<<16 | recBuffer[13]<<8 | recBuffer[12]));
 
-                String receivePayload = new String(recBuffer, 20, recBuffer.length - 20);
-                System.out.println("receivePayload = " + receivePayload);
-                JSONObject jsonObj = JSONObject.fromObject(receivePayload);
-                JSONObject responseJson = parseMessage(jsonObj);
+                    int dataSize = recBuffer[19]<<24 | recBuffer[18]<<16 | recBuffer[17]<<8 | recBuffer[16];
+                    System.out.println("dataSize = " + dataSize);
+                    if(dataSize != 0) {
+//                    String receivePayload = new String(recBuffer, 20, recBuffer.length - 20);
+                        String receivePayload = new String(recBuffer, 20, 1500);
+                        System.out.println("receivePayloadLen = " + receivePayload.length() + " " + "receivePayload = " + receivePayload);
+                        if(receivePayload.contains("snapshot_face"))
+                        {
+                            responseJson = JSONObject.fromObject("{\"message\":\"snapshot_face\",\"result\":0,\"desc\":\"\",\"data\":null}");
+                        }
+                        else {
+                            if(!receivePayload.isEmpty()) {
+                                JSONObject jsonObj = JSONObject.fromObject(receivePayload);
+                                responseJson = parseMessage(jsonObj);
+                            }
+                        }
+                    } else {
+                        responseJson = null;
+                    }
 
-                /*向客户端发送消息*/
-                int dataLen = responseJson.toString().length();
-                System.out.println("dataLen = " + dataLen);
+                    /*向客户端发送消息*/
+                    recBuffer[5] = 4;//响应类型
+                    Arrays.fill(recBuffer, 20, recBuffer.length - 1, (byte)0);
 
-                recBuffer[19] = (byte) ((dataLen & 0xFFFFFFFF)>>24);
-                recBuffer[18] = (byte) ((dataLen & 0x00FFFFFF)>>16);
-                recBuffer[17] = (byte) ((dataLen & 0x0000FFFF)>>8);
-                recBuffer[16] = (byte) dataLen;
+                    int dataLen = 0;
+                    if(responseJson != null) {
+                        dataLen = getStringLength.length(responseJson.toString());
+                        System.out.println("response dataLen = " + dataLen);
+                        System.out.println("responseJson = " + responseJson.toString());
+                        byte[] byt = responseJson.toString().getBytes("UTF-8");
 
-                recBuffer[5] = 4;//响应类型
-                Arrays.fill(recBuffer, 20, recBuffer.length - 1, (byte)0);
+                        System.arraycopy(byt, 0, recBuffer, 20, byt.length);
+                        String reponsePayload = new String(recBuffer, 20, recBuffer.length - 20);
+//                        System.out.println("reponsePayload = " + reponsePayload);
 
-                System.out.println("responseJson = " + responseJson.toString());
-                byte[] byt = responseJson.toString().getBytes();
+                        recBuffer[19] = (byte) ((dataLen & 0xFFFFFFFF)>>24);
+                        recBuffer[18] = (byte) ((dataLen & 0x00FFFFFF)>>16);
+                        recBuffer[17] = (byte) ((dataLen & 0x0000FFFF)>>8);
+                        recBuffer[16] = (byte) dataLen;
 
-                System.arraycopy(byt, 0, recBuffer, 20, byt.length);
-                String reponsePayload = new String(recBuffer, 20, recBuffer.length - 20);
-                System.out.println("reponsePayload = " + reponsePayload);
+                        String sendPayload = new String(recBuffer, 20, recBuffer.length - 20);
+                        System.out.println("sendDataLen = " + dataLen);
+                        System.out.println("sendPayloadLen = " + sendPayload.length() + " " + "sendPayload = " + sendPayload);
 
-                outputStream = socket.getOutputStream();
-                outputStream.write(recBuffer);
+                        outputStream = socket.getOutputStream();
+                        outputStream.write(recBuffer, 0, dataLen + 20);
+                    }
+                }
+
+                Thread.sleep(20);
             }
         } catch (Exception e) {
-            System.out.println("客户端主动断开连接了");
+            System.out.println("服务器主动断开连接");
             e.printStackTrace();
         }
         //操作结束，关闭socket
@@ -130,7 +167,6 @@ public class SocketOperate extends Thread {
 
     public JSONObject parseMessage(JSONObject jsonObj) {
         String message = jsonObj.getString("message");
-        System.out.println("message = " + message);
         switch (message) {
             case "register":
                 responseJson = registerParse(jsonObj);
@@ -138,13 +174,26 @@ public class SocketOperate extends Thread {
             case "login":
                 responseJson = login(jsonObj);
                 break;
+            case "sync_time":
+                responseJson = syncTime(jsonObj);
+                break;
+            case "qrcode_data":
+                responseJson = qrodeData(jsonObj);
+                break;
+            case "query_qrcode":
+                responseJson = queryQrode(jsonObj);
+                break;
+            case "snapshot_face":
+                responseJson = snapshotFace(jsonObj);
+                break;
+
+            default:responseJson = null;
         }
 //        if(message == "register") {
 //            responseJson = registerParse(jsonObj);
 //        } else if(message == "login") {
 //            responseJson = login(jsonObj);
 //        }
-        System.out.println("parseMessage");
         return responseJson;
     }
 
@@ -154,7 +203,7 @@ public class SocketOperate extends Thread {
         {"message":"register","result":0,"desc":"","data":{"uuid":"503337a3498b4e6b8349b084c26e1147","passwd":"sUYpY/mV+WDaBacu","activateCodeNo":null,"activateCodeKey":null,"activateCode":null}}
         * */
         responseJson = JSONObject.fromObject("{\"message\":\"register\",\"result\":0,\"desc\":\"\",\"data\":{\"uuid\":\"503337a3498b4e6b8349b084c26e1147\",\"passwd\":\"sUYpY/mV+WDaBacu\",\"activateCodeNo\":null}}");
-        System.out.println("registerParse");
+//        responseJson = JSONObject.fromObject("{\"result\":0,\"desc\":\"Success\",\"data\":{\"uuid\":\"7d569218eb31cb1d\",\"passwd\":\"51589158\"}}");
         return  responseJson;
     }
 
@@ -164,7 +213,82 @@ public class SocketOperate extends Thread {
         {"message":"login","result":0,"desc":"","data":null}
         * */
         responseJson = JSONObject.fromObject("{\"message\":\"login\",\"result\":0,\"desc\":\"\",\"data\":null}");
-        System.out.println("login");
+//        System.out.println("login");
+        return  responseJson;
+    }
+
+    public JSONObject syncTime(JSONObject jsonObj) {
+        /*
+         {"message":"sync_time","data":{"timestamp":"20190531145826123"}}
+         {"message":"sync_time","result":0,"desc":"","data":{"timestamp":"20210813113236873"}}
+        * */
+        responseJson = new JSONObject();
+        responseJson.put("message", "sync_time");
+        responseJson.put("result", 0);
+        responseJson.put("desc", "");
+
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateTime = sdf.format(d);
+//        System.out.println("dateTime：" + dateTime);
+
+        JSONObject timeStamp = new JSONObject();
+        responseJson.put("data", timeStamp);
+//        System.out.println("syncTime json = " + responseJson.toString());
+
+        return  responseJson;
+    }
+
+    /*扫苏康码查询苏康码信息*/
+    public JSONObject qrodeData(JSONObject jsonObj) {
+        /*
+        {"message":"qrcode_data","data":{"content":"http://1024w.net"}}
+        {"message":"qrcode_data","result":0,"desc":"123","data":{"opendoor":0}}
+        * */
+        responseJson = new JSONObject();
+        responseJson.put("message", "qrcode_data");
+        responseJson.put("result", 0);
+        responseJson.put("desc", "");
+
+        JSONObject data = new JSONObject();
+        data.put("opendoor", openDoor);
+        data.put("name", name);
+        data.put("tip", tip);
+        data.put("idcardNo", "450522199811256969");
+        data.put("level", level);
+        responseJson.put("data", data);
+//        responseJson.put("data", "");
+        return  responseJson;
+    }
+
+    /*
+    * 通过身份证查询苏康码信息
+    * */
+    public JSONObject queryQrode(JSONObject jsonObj) {
+        /*
+        {"message":"query_qrcode","data":{"content":"789"}}
+        {"message":"query_qrcode","result":0,"desc":"123","data":{"opendoor":0}}
+        * */
+        responseJson = new JSONObject();
+        responseJson.put("message", "query_qrcode");
+        responseJson.put("result", 0);
+        responseJson.put("desc", "");
+
+        JSONObject data = new JSONObject();
+        data.put("opendoor", openDoor);
+        data.put("name", name);
+        data.put("tip", tip);
+        data.put("idcardNo", "450522199811256969");
+        data.put("level", level);
+        responseJson.put("data", data);
+//        responseJson.put("data", "");
+        return  responseJson;
+    }
+
+    public JSONObject snapshotFace(JSONObject jsonObj) {
+        responseJson = JSONObject.fromObject("{\"message\":\"snapshot_face\",\"result\":0,\"desc\":\"\",\"data\":null}\n");
+//        System.out.println("login");
         return  responseJson;
     }
 }

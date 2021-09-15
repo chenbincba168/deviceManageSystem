@@ -13,12 +13,15 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
 <html>
-<link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
-<link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.min.css"/>
+<%--<link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>--%>
+<%--<link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.min.css"/>--%>
+<link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.css"/>
+<link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.css"/>
 <head>
     <title>设备列表</title>
 </head>
 <body>
+
 <!-- 导航栏 -->
 <div class="sidebar text-left">
     <nav class="navbar navbar-default" role="navigation">
@@ -35,6 +38,7 @@
     </nav>
 </div>
 <br/>
+
 <div class="container">
     <h1 class="text-center">设备列表信息页面</h1>
     <hr/>
@@ -64,12 +68,13 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th style="text-align: center;">设备SN</th>
+                <th style="text-align: center;">编号</th>
                 <th style="text-align: center;">设备名称</th>
+                <th style="text-align: center;">设备SN</th>
                 <th style="text-align: center;">设备IP</th>
                 <th style="text-align: center;">设备分组</th>
-                <th style="text-align: center;">出入口标识</th>
                 <th style="text-align: center;">属性</th>
+                <th style="text-align: center;">连接状态</th>
             </tr>
             </thead>
             <tbody>
@@ -81,6 +86,7 @@
                     <td>${device.deviceIP}</td>
                     <td>${device.deviceGroup}</td>
                     <td>${device.deviceProperty}</td>
+                    <td>${requestScope.connect}</td>
                     <td>
                         <a href="#" onclick="return edit(${device.id})" style="text-decoration: none;">
                             <span class="fa fa-edit fa-fw"></span>
@@ -95,6 +101,8 @@
             </tbody>
         </table>
     </div>
+    <br/>
+    <hr/>
     <form class="listForm" method="post" action="<%=basePath%>/device/findByPage">
         <div class="row">
             <div class="form-inline">
@@ -186,6 +194,11 @@
             </div>
         </div>
     </form>
+    <!--显示图片-->
+    <img src="<%=basePath%>/img/cat.gif" />
+
+    </div>
+
 
     <!-- 删除的模态框 -->
     <div class="modal fade" id="trashModal">
@@ -209,6 +222,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- 编辑的模态框 -->
     <form class="form-horizontal" role="form" method="post" action="<%=basePath%>/device/update"
@@ -266,8 +280,9 @@
             </div>
         </div>
     </form>
-</div>
 </body>
+
+
 <script src="<%=basePath%>/lib/jquery-3.3.1.min.js"></script>
 <script src="<%=basePath%>/lib/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -323,6 +338,18 @@
     //提交表单的方法
     $(".editSure").click(function () {
         $("#form_edit").submit();
+    });
+
+    $("#btn").click(function () {
+        var length = 1;
+        if (length <= 0) {
+            layer.msg("请选择设备升级版本！", {icon: 2, time: 1500});
+            console.log("param---------------------------->");
+        } else {
+            layer.msg("请选择设备升级版本2！", {icon: 2, time: 1500});
+            console.log("param2---------------------------->");
+        }
+
     });
 
 </script>
