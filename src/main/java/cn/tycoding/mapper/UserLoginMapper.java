@@ -1,10 +1,10 @@
-package cn.tycoding.mapper;
+ package cn.tycoding.mapper;
 
 import cn.tycoding.pojo.UserLogin;
 
 /**
  * @author tycoding
- * @date 18-4-7下午9:10
+ * @date 121-5-15下午9:15
  */
 public interface UserLoginMapper {
 

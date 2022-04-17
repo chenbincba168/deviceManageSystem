@@ -1,11 +1,11 @@
-package cn.tycoding.mapper;
+ package cn.tycoding.mapper;
 
 import cn.tycoding.pojo.Customer;
 import com.github.pagehelper.Page;
 
 /**
  * @author tycoding
- * @date 18-4-14下午9:14
+ * @date 21-5-15下午9:15
  */
 public interface CustomerMapper {
 

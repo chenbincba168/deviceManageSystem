@@ -1,4 +1,4 @@
-package cn.tycoding.mapper;
+ package cn.tycoding.mapper;
 
 import cn.tycoding.pojo.Device;
 import com.github.pagehelper.Page;

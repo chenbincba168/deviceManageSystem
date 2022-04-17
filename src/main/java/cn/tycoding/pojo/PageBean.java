@@ -1,4 +1,4 @@
-package cn.tycoding.pojo;
+ package cn.tycoding.pojo;
 
 import java.io.Serializable;
 import java.util.List;

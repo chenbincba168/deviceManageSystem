@@ -1,4 +1,4 @@
-package cn.tycoding.controller;
+ package cn.tycoding.controller;
 
 import cn.tycoding.pojo.Customer;
 import cn.tycoding.service.CustomerService;
